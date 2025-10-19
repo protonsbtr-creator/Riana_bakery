@@ -3,388 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Treats, Perfect Eats - Snack Sehat</title>
-    <!-- Memuat Tailwind CSS -->
+    <title>Roti Riana - Kelembutan dari Dapur Rumah</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Mengatur font utama: Playfair Display untuk judul, Inter untuk teks */
-        :root {
-            --primary-color: #A0522D; /* Sienna - Warna cokelat untuk aksen */
-            --secondary-color: #383838; /* Abu-abu gelap untuk latar belakang */
-            --text-color: #E5E7EB; /* Abu-abu terang untuk teks */
-        }
+        /* Menggunakan font Inter untuk teks umum dan Pacifico untuk branding */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
         }
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+        /* Menambahkan scroll-behavior smooth untuk navigasi yang lebih mulus */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Warna kustom sesuai tema */
+        .bg-cream { background-color: #FDF5E6; }
+        .bg-brown-light { background-color: #D2B48C; }
+        .text-brown-dark { color: #8B4513; }
+        .btn-primary {
+            background-color: #8B4513; /* Cokelat Tua */
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #A0522D; /* Sienna */
+        }
+        /* Gaya untuk Hero Section */
         .hero-bg {
-            /* Meniru latar belakang gelap bertekstur dari gambar inspirasi */
-            background-color: var(--secondary-color);
-            background-image: url('https://placehold.co/1920x800/222/FFF?text=LATAR+BELAKANG+HEADER+GELAP');
+            background-image: url('https://images.unsplash.com/photo-1568254183919-78a4f43a2877?q=80&w=1974&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-        }
-        .text-brown {
-            color: var(--primary-color);
-        }
-        .bg-brown {
-            background-color: var(--primary-color);
-        }
-        .product-card {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-        }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-cream">
 
-    <!-- BAGIAN 1: HERO SECTION -->
-    <header class="hero-bg h-screen flex items-center relative">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="container mx-auto px-6 lg:px-20 z-10">
-            <!-- Logo di Kiri Atas (Meniru desain inspirasi) -->
-            <div class="absolute top-8 left-6 lg:left-20">
-                <div class="flex items-center space-x-2">
-                    <svg class="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    <span class="text-xl font-bold text-gray-100">Snack Shop</span>
-                </div>
-            </div>
-
-            <div class="max-w-xl text-left">
-                <p class="text-lg uppercase tracking-widest text-brown mb-2">Artisan Baking</p>
-                <h1 class="text-6xl lg:text-8xl font-bold text-white leading-tight">
-                    Sweet Treats, <br>Perfect Eats
-                </h1>
-                <p class="text-xl text-gray-300 mt-4 mb-8 max-w-md">
-                    Temukan koleksi snack sehat premium, dibuat dengan bahan-bahan terbaik dan cinta.
-                </p>
-                <a href="#" class="bg-brown text-white py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
-                    Shop Now
-                </a>
-            </div>
+    <!-- Navigasi -->
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-pacifico text-2xl text-brown-dark">Roti Riana</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#beranda" class="text-gray-700 hover:text-brown-dark">Beranda</a>
+                <a href="#tentang" class="text-gray-700 hover:text-brown-dark">Tentang Kami</a>
+                <a href="#produk" class="text-gray-700 hover:text-brown-dark">Produk</a>
+                <a href="#galeri" class="text-gray-700 hover:text-brown-dark">Galeri</a>
+                <a href="#kontak" class="text-gray-700 hover:text-brown-dark">Kontak</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="text-gray-700"></i>
+            </button>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+            <a href="#beranda" class="block text-gray-700 hover:text-brown-dark">Beranda</a>
+            <a href="#tentang" class="block text-gray-700 hover:text-brown-dark">Tentang Kami</a>
+            <a href="#produk" class="block text-gray-700 hover:text-brown-dark">Produk</a>
+            <a href="#galeri" class="block text-gray-700 hover:text-brown-dark">Galeri</a>
+            <a href="#kontak" class="block text-gray-700 hover:text-brown-dark">Kontak</a>
         </div>
     </header>
 
-    <!-- BAGIAN 2: TOP PRODUCTS (Replika 6 Kartu) -->
-    <section id="products" class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-20 text-center">
-            <h2 class="text-4xl font-bold mb-12">Top Products</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- KARTU PRODUK REPLIKA (Akan diulang 6 kali) -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 1 (Ganti URL ini dengan foto produk snack Anda) -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Produk+1" alt="Produk Snack Sehat 1" class="w-full h-full object-cover">
-                        <span class="absolute top-3 right-3 bg-brown text-white text-xs font-semibold px-3 py-1 rounded-full">Baru</span>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Nama Snack Premium</p>
-                        <p class="text-sm text-gray-500">Kategori: Granola Bar</p>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-xl font-bold text-brown">$4.99</span>
-                            <a href="#" class="bg-brown text-white text-sm py-2 px-4 rounded-full hover:bg-opacity-80 transition duration-300">Beli</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KARTU PRODUK REPLIKA 2 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 2 (Ganti URL ini) -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Produk+2" alt="Produk Snack Sehat 2" class="w-full h-full object-cover">
-                        <span class="absolute top-3 right-3 bg-brown text-white text-xs font-semibold px-3 py-1 rounded-full">Baru</span>
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Nama Snack Premium</p>
-                        <p class="text-sm text-gray-500">Kategori: Cereal Bar</p>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-xl font-bold text-brown">$5.49</span>
-                            <a href="#" class="bg-brown text-white text-sm py-2 px-4 rounded-full hover:bg-opacity-80 transition duration-300">Beli</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KARTU PRODUK REPLIKA 3 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 3 (Ganti URL ini) -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Produk+3" alt="Produk Snack Sehat 3" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Nama Snack Premium</p>
-                        <p class="text-sm text-gray-500">Kategori: Cookies</p>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-xl font-bold text-brown">$3.99</span>
-                            <a href="#" class="bg-brown text-white text-sm py-2 px-4 rounded-full hover:bg-opacity-80 transition duration-300">Beli</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KARTU PRODUK REPLIKA 4 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 4 (Ganti URL ini) -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Produk+4" alt="Produk Snack Sehat 4" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Nama Snack Premium</p>
-                        <p class="text-sm text-gray-500">Kategori: Crackers</p>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-xl font-bold text-brown">$4.50</span>
-                            <a href="#" class="bg-brown text-white text-sm py-2 px-4 rounded-full hover:bg-opacity-80 transition duration-300">Beli</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KARTU PRODUK REPLIKA 5 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 5 (Ganti URL ini) -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Produk+5" alt="Produk Snack Sehat 5" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Nama Snack Premium</p>
-                        <p class="text-sm text-gray-500">Kategori: Vegan Muffin</p>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-xl font-bold text-brown">$6.00</span>
-                            <a href="#" class="bg-brown text-white text-sm py-2 px-4 rounded-full hover:bg-opacity-80 transition duration-300">Beli</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- KARTU PRODUK REPLIKA 6 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 6 (Ganti URL ini) -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Produk+6" alt="Produk Snack Sehat 6" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Nama Snack Premium</p>
-                        <p class="text-sm text-gray-500">Kategori: Cheese Bread</p>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-xl font-bold text-brown">$5.25</span>
-                            <a href="#" class="bg-brown text-white text-sm py-2 px-4 rounded-full hover:bg-opacity-80 transition duration-300">Beli</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- AKHIR KARTU PRODUK REPLIKA -->
+    <main>
+        <!-- (A) Halaman Depan (Beranda) -->
+        <section id="beranda" class="relative hero-bg text-white">
+            <div class="absolute inset-0 bg-black/50"></div> <!-- Overlay -->
+            <div class="relative container mx-auto px-6 text-center py-32 md:py-40">
+                <h1 class="text-4xl md:text-5xl font-bold" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Roti & Kue Hangat, Langsung dari Oven Kami</h1>
+                <p class="mt-4 text-lg text-gray-200 max-w-2xl mx-auto" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.7);">Dibuat setiap hari dengan bahan-bahan pilihan tanpa pengawet. Solusi praktis untuk sarapan dan teman ngopi Anda.</p>
+                <a href="#produk" class="mt-8 inline-block btn-primary font-semibold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300">Lihat Semua Produk</a>
             </div>
-        </div>
-    </section>
-
-    <!-- BAGIAN 3: CTA PROMOSI (20% OFF) -->
-    <section class="py-20" style="background-image: url('https://placehold.co/1920x400/F2F2F2/383838?text=Latar+Belakang+Promosi+Produk+Roti+Gandum'); background-size: cover; background-position: center;">
-        <div class="container mx-auto px-6 lg:px-20 text-center bg-black bg-opacity-40 py-10 rounded-xl shadow-xl">
-            <h2 class="text-5xl font-bold text-white mb-4">20% Off Your Next Order</h2>
-            <p class="text-lg text-gray-200 mb-8">Dapatkan penawaran eksklusif ini sekarang juga sebelum kehabisan!</p>
-            <a href="#" class="bg-brown text-white py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
-                Learn More
-            </a>
-        </div>
-    </section>
-
-    <!-- BAGIAN 4: EXPLORE MORE (Replika Galeri 3x2) -->
-    <section class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-20 text-center">
-            <h2 class="text-4xl font-bold mb-12">Explore More</h2>
-            
-            <!-- Navigasi Tab (Replika Tab Pilihan) -->
-            <div class="flex justify-center space-x-6 mb-10 text-lg font-medium">
-                <a href="#" class="text-brown border-b-2 border-brown pb-1 transition duration-300">Snacks</a>
-                <a href="#" class="text-gray-500 hover:text-brown pb-1 transition duration-300">Muffins</a>
-                <a href="#" class="text-gray-500 hover:text-brown pb-1 transition duration-300">Bread</a>
-                <a href="#" class="text-gray-500 hover:text-brown pb-1 transition duration-300">Vegan</a>
-                <a href="#" class="text-gray-500 hover:text-brown pb-1 transition duration-300">Cookies</a>
-            </div>
-
-            <!-- GALERI 3X2 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- ITEM GALERI REPLIKA (Akan diulang 6 kali) -->
-                
-                <!-- PLACEHOLDER GAMBAR 7 -->
-                <div class="overflow-hidden rounded-xl shadow-md transform hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/383838/F0F0F0?text=Galeri+Item+7" alt="Galeri Snack" class="w-full h-full object-cover cursor-pointer">
-                </div>
-                
-                <!-- PLACEHOLDER GAMBAR 8 -->
-                <div class="overflow-hidden rounded-xl shadow-md transform hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/383838/F0F0F0?text=Galeri+Item+8" alt="Galeri Snack" class="w-full h-full object-cover cursor-pointer">
-                </div>
-
-                <!-- PLACEHOLDER GAMBAR 9 -->
-                <div class="overflow-hidden rounded-xl shadow-md transform hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/383838/F0F0F0?text=Galeri+Item+9" alt="Galeri Snack" class="w-full h-full object-cover cursor-pointer">
-                </div>
-
-                <!-- PLACEHOLDER GAMBAR 10 -->
-                <div class="overflow-hidden rounded-xl shadow-md transform hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/383838/F0F0F0?text=Galeri+Item+10" alt="Galeri Snack" class="w-full h-full object-cover cursor-pointer">
-                </div>
-                
-                <!-- PLACEHOLDER GAMBAR 11 -->
-                <div class="overflow-hidden rounded-xl shadow-md transform hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/383838/F0F0F0?text=Galeri+Item+11" alt="Galeri Snack" class="w-full h-full object-cover cursor-pointer">
-                </div>
-
-                <!-- PLACEHOLDER GAMBAR 12 -->
-                <div class="overflow-hidden rounded-xl shadow-md transform hover:shadow-xl transition duration-300">
-                    <img src="https://placehold.co/600x400/383838/F0F0F0?text=Galeri+Item+12" alt="Galeri Snack" class="w-full h-full object-cover cursor-pointer">
-                </div>
-                <!-- AKHIR GALERI -->
-            </div>
-        </div>
-    </section>
-
-    <!-- BAGIAN 5: ABOUT US -->
-    <section class="py-20 hero-bg text-white">
-        <div class="container mx-auto px-6 lg:px-20 text-center">
-            <h2 class="text-4xl font-bold mb-6">About Us</h2>
-            <p class="text-xl max-w-3xl mx-auto mb-10">
-                Kami percaya pada kualitas dan rasa. Setiap snack dibuat dari bahan-bahan organik pilihan, diproses dengan tangan untuk menjamin kesempurnaan di setiap gigitan. Kami mengutamakan kesehatan tanpa mengorbankan kelezatan.
-            </p>
-            <a href="#" class="bg-brown text-white py-3 px-8 rounded-full shadow-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105">
-                Read More
-            </a>
-        </div>
-    </section>
-
-    <!-- BAGIAN 6: FEATURED TREATS (Tiga Kartu Bawah) -->
-    <section class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-6 lg:px-20 text-center">
-            <h2 class="text-4xl font-bold mb-12">Featured Treats</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- KARTU FEATURED 1 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 13 -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Treat+13" alt="Featured Treat 1" class="w-full h-full object-cover">
+        </section>
+        
+        <!-- Keunggulan, Produk, Testimoni Section -->
+        <section class="py-16">
+            <!-- Keunggulan Utama -->
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-center items-center h-16 w-16 mx-auto bg-pink-100 rounded-full">
+                           <i data-lucide="home" class="text-pink-500"></i>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-brown-dark">100% Homemade</h3>
+                        <p class="mt-2 text-gray-500">Dibuat dengan resep keluarga yang otentik di dapur kami.</p>
                     </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Puff Pastry</p>
-                        <p class="text-sm text-gray-500">Kategori: Flaky</p>
-                        <span class="text-xl font-bold text-brown mt-3 block">$5</span>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-center items-center h-16 w-16 mx-auto bg-green-100 rounded-full">
+                           <i data-lucide="leaf" class="text-green-500"></i>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-brown-dark">Tanpa Bahan Pengawet</h3>
+                        <p class="mt-2 text-gray-500">Kami hanya menggunakan bahan alami terbaik untuk Anda.</p>
                     </div>
-                </div>
-
-                <!-- KARTU FEATURED 2 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 14 -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Treat+14" alt="Featured Treat 2" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Doughnuts</p>
-                        <p class="text-sm text-gray-500">Kategori: Sweet</p>
-                        <span class="text-xl font-bold text-brown mt-3 block">$5</span>
-                    </div>
-                </div>
-
-                <!-- KARTU FEATURED 3 -->
-                <div class="product-card bg-gray-50 p-4 rounded-xl shadow-lg border border-gray-100">
-                    <div class="relative mb-4 overflow-hidden rounded-lg h-64">
-                        <!-- PLACEHOLDER GAMBAR 15 -->
-                        <img src="https://placehold.co/400x300/F0F0F0/383838?text=Treat+15" alt="Featured Treat 3" class="w-full h-full object-cover">
-                    </div>
-                    <div class="text-left">
-                        <p class="text-lg font-semibold text-gray-800">Brownies</p>
-                        <p class="text-sm text-gray-500">Kategori: Chocolate</p>
-                        <span class="text-xl font-bold text-brown mt-3 block">$5</span>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex justify-center items-center h-16 w-16 mx-auto bg-blue-100 rounded-full">
+                           <i data-lucide="package-check" class="text-blue-500"></i>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold text-brown-dark">Pesan Hari Ini, Kirim Besok</h3>
+                        <p class="mt-2 text-gray-500">Menjamin kesegaran produk saat tiba di rumah Anda.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- BAGIAN 7: FOOTER -->
-    <footer class="hero-bg py-16 text-gray-300">
-        <div class="container mx-auto px-6 lg:px-20 grid grid-cols-1 md:grid-cols-4 gap-12">
-            
-            <!-- Kolom 1: About Us -->
-            <div>
-                <div class="flex items-center space-x-2 mb-4">
-                    <svg class="w-8 h-8 text-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    <span class="text-xl font-bold text-white">Snack Shop</span>
-                </div>
-                <p class="text-sm">
-                    Kami hadir untuk menyajikan camilan sehat yang lezat, dibuat dengan bahan-bahan terbaik dan standar kebersihan tertinggi.
-                </p>
-                <div class="mt-4 flex space-x-3">
-                    <a href="#" class="text-gray-400 hover:text-brown transition duration-300">
-                        <!-- Ikon Facebook -->
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.35c0 .732.593 1.325 1.325 1.325h11.492v-9.294h-3.13v-3.627h3.13v-2.153c0-3.116 1.893-4.814 4.659-4.814 1.325 0 2.464.099 2.79.143v3.22h-1.921c-1.505 0-1.802.715-1.802 1.767v2.31h3.587l-.467 3.627h-3.12v9.294h6.116c.732 0 1.325-.593 1.325-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-brown transition duration-300">
-                        <!-- Ikon Twitter -->
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.924 4.924 0 00-8.39 4.49 13.985 13.985 0 01-10.142-5.118 4.926 4.926 0 001.523 6.574 4.912 4.912 0 01-2.23-.616v.062a4.935 4.935 0 003.953 4.827 4.91 4.91 0 01-2.227.084 4.929 4.929 0 004.608 3.425 9.897 9.897 0 01-6.117 2.105 13.992 13.992 0 007.545 2.209c9.053 0 14.015-7.49 14.015-13.987 0-.214-.005-.427-.013-.639A10.05 10.05 0 0024 4.557z"/></svg>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-brown transition duration-300">
-                        <!-- Ikon Instagram -->
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07c3.25.148 4.773 1.674 4.922 4.922.058 1.266.07 1.646.07 4.85 0 3.204-.012 3.584-.07 4.85-0.149 3.25-1.675 4.773-4.922 4.922-1.266.058-1.646.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.25-.149-4.773-1.675-4.922-4.922-0.058-1.266-0.07-1.646-0.07-4.85s0.012-3.584 0.07-4.85c0.149-3.25 1.675-4.773 4.922-4.922 1.266-0.058 1.646-0.07 4.85-0.07zm0-2.163c-3.259 0-3.667 0.014-4.945 0.071-4.04 0.185-6.131 2.275-6.315 6.315-0.058 1.278-0.07 1.686-0.07 4.945s0.014 3.667 0.071 4.945c0.184 4.04 2.275 6.131 6.315 6.315 1.278 0.058 1.686 0.07 4.945 0.07s3.667-0.014 4.945-0.071c4.04-0.184 6.131-2.275 6.315-6.315 0.058-1.278 0.07-1.686 0.07-4.945s-0.014-3.667-0.071-4.945c-0.184-4.04-2.275-6.131-6.315-6.315-1.278-0.058-1.686-0.07-4.945-0.07zm0 7.375c-2.583 0-4.675 2.092-4.675 4.675s2.092 4.675 4.675 4.675 4.675-2.092 4.675-4.675-2.092-4.675-4.675-4.675zm0 9.35c-2.673 0-4.675-2.002-4.675-4.675s2.002-4.675 4.675-4.675 4.675 2.002 4.675 4.675-2.002 4.675-4.675 4.675zm5.335-9.883c0-0.576-0.467-1.042-1.042-1.042s-1.042 0.466-1.042 1.042c0 0.576 0.467 1.042 1.042 1.042s1.042-0.466 1.042-1.042z"/></svg>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Kolom 2: Explore -->
-            <div>
-                <h3 class="text-white font-semibold text-xl mb-4">Explore</h3>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-brown transition duration-300">New Arrivals</a></li>
-                    <li><a href="#" class="hover:text-brown transition duration-300">Best Sellers</a></li>
-                    <li><a href="#" class="hover:text-brown transition duration-300">Vegan Options</a></li>
-                    <li><a href="#" class="hover:text-brown transition duration-300">Gift Boxes</a></li>
-                </ul>
-            </div>
-
-            <!-- Kolom 3: Recent News -->
-            <div>
-                <h3 class="text-white font-semibold text-xl mb-4">Recent News</h3>
-                <div class="space-y-4">
-                    <!-- Artikel 1 -->
-                    <a href="#" class="flex items-start space-x-3 hover:text-white transition duration-300">
-                        <!-- PLACEHOLDER GAMBAR 16 (Thumbnail Berita) -->
-                        <img src="https://placehold.co/60x60/F0F0F0/383838?text=Thumb+1" alt="Thumbnail Berita" class="w-12 h-12 object-cover rounded-md">
-                        <div class="text-sm">
-                            <p class="font-medium leading-tight">Mengenal 5 Jenis Biji-Bijian Sehat</p>
-                            <span class="text-xs text-gray-500">Oleh Tim Kami - 2 hari lalu</span>
+            <!-- Produk Unggulan -->
+            <div class="container mx-auto px-6 mt-20">
+                <h2 class="text-3xl font-bold text-center text-brown-dark mb-10">Produk Terlaris Kami</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/D2B48C/FFFFFF?text=Roti+Gandum" alt="Roti Tawar Gandum" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-dark">Roti Tawar Gandum</h3>
+                            <p class="mt-4 text-lg font-semibold text-gray-800">Rp 25.000</p>
                         </div>
-                    </a>
-                    <!-- Artikel 2 -->
-                    <a href="#" class="flex items-start space-x-3 hover:text-white transition duration-300">
-                        <!-- PLACEHOLDER GAMBAR 17 (Thumbnail Berita) -->
-                        <img src="https://placehold.co/60x60/F0F0F0/383838?text=Thumb+2" alt="Thumbnail Berita" class="w-12 h-12 object-cover rounded-md">
-                        <div class="text-sm">
-                            <p class="font-medium leading-tight">Resep Brownies Keto Favorit</p>
-                            <span class="text-xs text-gray-500">Oleh Tim Kami - 1 minggu lalu</span>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/D2B48C/FFFFFF?text=Cinnamon+Roll" alt="Cinnamon Roll Klasik" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-dark">Cinnamon Roll Klasik</h3>
+                            <p class="mt-4 text-lg font-semibold text-gray-800">Rp 15.000</p>
                         </div>
-                    </a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x400/D2B48C/FFFFFF?text=Bomboloni" alt="Bomboloni Cokelat Lumer" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-brown-dark">Bomboloni Cokelat Lumer</h3>
+                            <p class="mt-4 text-lg font-semibold text-gray-800">Rp 12.000</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Kolom 4: Hubungi Kami -->
-            <div>
-                <h3 class="text-white font-semibold text-xl mb-4">Hubungi Kami</h3>
-                <p class="text-sm">Jl. Sehat Selalu No. 10, Jakarta</p>
-                <p class="text-sm mt-2">Email: <a href="mailto:info@snacks.com" class="hover:text-brown transition duration-300">info@snacks.com</a></p>
-                <p class="text-sm">Telepon: (021) 123-4567</p>
+            <!-- Testimoni -->
+            <div class="container mx-auto px-6 mt-20 text-center">
+                 <div class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                    <p class="text-lg italic text-gray-600">"Rotinya lembut banget, anak-anak suka! Pengirimannya juga selalu tepat waktu."</p>
+                    <p class="mt-4 font-semibold text-brown-dark">- Ibu Anita, Jakarta Selatan</p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Copyright -->
-        <div class="mt-12 pt-6 border-t border-gray-700 text-center text-sm text-gray-500">
-            &copy; 2025 Snack Shop Premium. All rights reserved.
+        <!-- (B) Halaman Tentang Kami -->
+        <section id="tentang" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <img src="https://placehold.co/600x700/D2B48C/FFFFFF?text=Riana+di+Dapur" alt="Riana, pendiri Roti Riana" class="rounded-lg shadow-xl w-full">
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-brown-dark mb-4">Cerita di Balik Roti Riana</h2>
+                        <p class="text-gray-600 mb-4">Roti Riana berawal dari hobi saya, Riana, yang suka membuat roti untuk keluarga di rumah. Karena banyak teman yang menyukai dan mulai memesan, saya memberanikan diri untuk membuka toko online ini di tahun 2023.</p>
+                        <p class="text-gray-600 mb-6">Misi kami sederhana: menyajikan roti yang lezat, sehat, dan terasa seperti buatan ibu di rumah untuk setiap keluarga.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-xl font-semibold text-brown-dark">Visi</h3>
+                                <p class="text-gray-500">Menjadi pilihan utama untuk kebutuhan roti harian keluarga Indonesia.</p>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-brown-dark">Misi</h3>
+                                <p class="text-gray-500">Menjaga kualitas resep rumahan dan menggunakan bahan baku terbaik.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- (C) Halaman Produk -->
+        <section id="produk" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-brown-dark">Katalog Produk Kami</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mt-4 mb-12">Temukan berbagai pilihan roti, donat, dan kue manis yang cocok untuk segala suasana. Semua produk kami dibuat berdasarkan pesanan agar selalu fresh.</p>
+                
+                <!-- Kategori 1: Roti Tawar & Roti Sobek -->
+                <h3 class="text-2xl font-bold text-brown-dark mb-6">Roti Tawar & Roti Sobek</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-gray-800">Roti Tawar Gandum</h4>
+                        <p class="text-gray-500 mt-2">Roti sehat kaya serat.</p>
+                        <p class="mt-4 text-lg font-bold text-brown-dark">Rp 25.000</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-gray-800">Roti Sobek Keju</h4>
+                        <p class="text-gray-500 mt-2">Lembut dengan isian keju melimpah.</p>
+                        <p class="mt-4 text-lg font-bold text-brown-dark">Rp 35.000</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-gray-800">Roti Sobek Cokelat</h4>
+                        <p class="text-gray-500 mt-2">Favorit anak-anak dengan isian cokelat premium.</p>
+                        <p class="mt-4 text-lg font-bold text-brown-dark">Rp 35.000</p>
+                    </div>
+                </div>
+
+                <!-- Kategori 2: Kue & Pastry Manis -->
+                <h3 class="text-2xl font-bold text-brown-dark mb-6">Kue & Pastry Manis</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                     <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-gray-800">Cinnamon Roll Klasik</h4>
+                        <p class="text-gray-500 mt-2">Aroma kayu manis yang menggugah selera.</p>
+                        <p class="mt-4 text-lg font-bold text-brown-dark">Rp 15.000</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-gray-800">Bomboloni Aneka Rasa</h4>
+                        <p class="text-gray-500 mt-2">Pilihan rasa cokelat, stroberi, dan tiramisu.</p>
+                        <p class="mt-4 text-lg font-bold text-brown-dark">Rp 12.000 /pcs</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h4 class="text-xl font-semibold text-gray-800">Pisang Bolen Lilit</h4>
+                        <p class="text-gray-500 mt-2">Manisnya pisang berpadu dengan renyahnya pastry.</p>
+                        <p class="mt-4 text-lg font-bold text-brown-dark">Rp 10.000 /pcs</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- (D) Halaman Galeri -->
+        <section id="galeri" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-brown-dark">Galeri Roti Riana</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mt-4 mb-12">Momen-momen manis dari dapur dan pelanggan kami.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x700/FDF5E6/8B4513?text=Produk+1" alt="Galeri foto roti 1"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x500/FDF5E6/8B4513?text=Produk+2" alt="Galeri foto roti 2"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x500/FDF5E6/8B4513?text=Produk+3" alt="Galeri foto roti 3"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x750/FDF5E6/8B4513?text=Produk+4" alt="Galeri foto roti 4"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x750/FDF5E6/8B4513?text=Produk+5" alt="Galeri foto roti 5"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x500/FDF5E6/8B4513?text=Produk+6" alt="Galeri foto roti 6"></div>
+                    </div>
+                    <div class="grid gap-4">
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x500/FDF5E6/8B4513?text=Produk+7" alt="Galeri foto roti 7"></div>
+                        <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://placehold.co/500x700/FDF5E6/8B4513?text=Produk+8" alt="Galeri foto roti 8"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- (E) Halaman Kontak -->
+        <section id="kontak" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center text-brown-dark">Pesan Sekarang</h2>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mt-4 mb-12">Hubungi kami untuk melakukan pemesanan atau bertanya lebih lanjut. Kami siap melayani!</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-8 rounded-lg shadow-xl">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-brown-dark mb-6">Informasi Kontak</h3>
+                        <div class="space-y-4 text-gray-700">
+                            <div class="flex items-start">
+                                <i data-lucide="phone" class="w-6 h-6 mr-4 mt-1 text-brown-dark"></i>
+                                <div>
+                                    <h4 class="font-semibold">WhatsApp</h4>
+                                    <a href="https://wa.me/6281234567890" target="_blank" class="hover:underline">0812-3456-7890 (Klik untuk chat)</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="mail" class="w-6 h-6 mr-4 mt-1 text-brown-dark"></i>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <a href="mailto:order@rotiriana.com" class="hover:underline">order@rotiriana.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="map-pin" class="w-6 h-6 mr-4 mt-1 text-brown-dark"></i>
+                                <div>
+                                    <h4 class="font-semibold">Alamat</h4>
+                                    <p>Dapur Pusat di Depok, Jawa Barat<br><span class="text-sm">(Hanya untuk pengambilan, tidak ada dine-in)</span></p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="clock" class="w-6 h-6 mr-4 mt-1 text-brown-dark"></i>
+                                <div>
+                                    <h4 class="font-semibold">Jam Operasional</h4>
+                                    <p>Pemesanan: 24 Jam<br>Pengiriman: 08:00 - 15:00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                             <h4 class="text-xl font-semibold text-brown-dark mb-4">Ikuti Kami</h4>
+                             <div class="flex space-x-4">
+                                <a href="https://instagram.com/rotiriana" target="_blank" class="text-gray-500 hover:text-brown-dark"><i data-lucide="instagram"></i></a>
+                                <a href="https://facebook.com/rotiriana" target="_blank" class="text-gray-500 hover:text-brown-dark"><i data-lucide="facebook"></i></a>
+                             </div>
+                        </div>
+                    </div>
+                    <div>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126900.0093835697!2d106.7579442999039!3d-6.387532393279183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e95620a297d3%3A0x1cf7276325b126b0!2sDepok%2C%20Depok%20City%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1678886543210!5m2!1sen!2sid" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="rounded-lg">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brown-light py-8">
+        <div class="container mx-auto px-6 text-center text-brown-dark">
+            <p>&copy; 2025 Roti Riana. Kelembutan dari Dapur Rumah.</p>
         </div>
     </footer>
 
+    <script>
+        // Inisialisasi Lucide Icons
+        lucide.createIcons();
+
+        // Logika untuk menu mobile
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Menutup menu mobile saat link di-klik
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
+
